@@ -7,14 +7,16 @@ import {
   CardHeader,
   CardTitle
 } from "@/components/ui/card"
+import type { TBook } from "@/types/BookType"
 
-export const BookCard= ({}) =>{
+export const BookCard= ({book}:{book:TBook}) =>{
+
 
 
   return (
     <Card className="w-full max-w-xm">
       <CardHeader>
-        <CardTitle>Book Title</CardTitle>
+        <CardTitle></CardTitle>
         <CardDescription>Book Author</CardDescription>
       </CardHeader>
       <CardContent>
