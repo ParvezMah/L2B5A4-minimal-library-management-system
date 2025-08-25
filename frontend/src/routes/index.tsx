@@ -4,7 +4,7 @@ import AllBooks from "@/Pages/AllBooks";
 import BorrowSummery from "@/Pages/BorrowSummery";
 import Landing from "@/Pages/Landing";
 
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
     {

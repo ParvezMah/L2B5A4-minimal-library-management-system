@@ -1,14 +1,16 @@
 import { Button } from "@/components/ui/button"
 import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle
 } from "@/components/ui/card"
 
-export function BookCard() {
+export const BookCard= ({}) =>{
+
+
   return (
     <Card className="w-full max-w-xm">
       <CardHeader>
