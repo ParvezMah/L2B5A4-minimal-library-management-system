@@ -1,7 +1,15 @@
+import { useGetAllBooksQuery } from "@/api/bookApi";
 import { BookCard } from "@/components/component/BookCard";
+import type { TBook } from "@/types/BookType";
 
 
 const Landing = () => {
+
+    const {data, error, isLoading}= useGetAllBooksQuery();
+  
+    // console.log('Loaded Books : ', data?.books);
+    const dataBooks = data?.books;
+
   return (
     <div>
       {/* Hero Section */}
@@ -18,16 +26,16 @@ const Landing = () => {
       </section>
       {/* See Our Books */}
       
-      <section className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-center">
-          <h2 className="text-5xl font-bold mb-4 text-orange-500">See Our Books.....</h2>
+    <div className="container mx-auto py-8">
+        <h1 className="text-5xl text-center font-bold mb-4 text-orange-500">See Our Books</h1>
+        <div className="grid gap-6 sm:grid-cols2 md:grid-cols-3 lg:grid-cols-4">
+          {
+            dataBooks?.map((book:TBook)=>(
+              <BookCard key={book._id} book={book}/>
+            ))
+          }
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
-          <BookCard/>
-          <BookCard/>
-          <BookCard/>
-        </div>
-      </section>
+    </div>
     </div>
   );
 };

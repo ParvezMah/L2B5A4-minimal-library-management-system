@@ -29,14 +29,9 @@ const AllBooks = () => {
 
 
   return (
-    <div>
+    <div className="container mx-auto py-8">
         <h1 className="text-3xl font-bold text-center mb-6">All Books</h1>
-        <div className="text-2xl font-bold text-center mb-6">
-          {
-            dataBooks?.map((book:TBook)=>(
-              <BookCard key={book._id} book={book}/>
-            ))
-          }
+        <div className="grid gap-6 sm:grid-cols2 md:grid-cols-3 lg:grid-cols-4">
         </div>
     </div>
   )
