@@ -19,7 +19,9 @@ const Landing = () => {
       {/* See Our Books */}
       
       <section className="max-w-7xl mx-auto px-4">
-        <h2>See Our Books.....</h2>
+        <div className="flex justify-center">
+          <h2 className="text-5xl font-bold mb-4 text-orange-500">See Our Books.....</h2>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
           <BookCard/>
           <BookCard/>
