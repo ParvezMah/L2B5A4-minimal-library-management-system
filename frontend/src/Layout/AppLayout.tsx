@@ -1,3 +1,4 @@
+import Footer from "@/Pages/Home/Footer";
 import Navbar from "@/Pages/Navbar";
 import { Outlet } from "react-router";
 
@@ -9,7 +10,7 @@ const AppLayout = () => {
         <main className="flex-1 p-6">
           <Outlet />
         </main>
-        <footer>Footer Section</footer>
+        <Footer/>
       </div>
     </div>
   );
