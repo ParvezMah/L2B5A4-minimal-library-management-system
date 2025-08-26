@@ -1,40 +1,64 @@
-import { useGetAllBooksQuery } from "@/api/bookApi"
-import { BookCard } from "@/components/component/BookCard";
-import type { TBook } from "@/types/BookType";
-
+import { useGetAllBooksQuery } from "@/api/bookApi";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 const AllBooks = () => {
+  const { data, isLoading } = useGetAllBooksQuery(undefined);
+  const books = data?.data;
 
-  const {data, error, isLoading}= useGetAllBooksQuery();
+  console.log("All Books books : ", books);
 
-  // console.log('Loaded Books : ', data?.books);
-  const dataBooks = data?.books;
-
-  if(isLoading) {
+  if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center h-40">
         <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-orange-400 mb-4"></div>
-        <p className="text-lg text-orange-500 font-semibold">Loading Books.....</p>;
+        <p className="text-lg text-orange-500 font-semibold">
+          Loading Books.....
+        </p>
+        ;
       </div>
-    )
+    );
   }
-  if(error) {
-    return (
-      <div className="flex flex-col items-center justify-center h-40">
-        <p className="text-lg text-orange-500 font-semibold">Error Fethcing Books.....</p>
-        <p className="text-sm text-gray-500 mt-2">Please try again later</p>
-      </div>
-    )
-  }
-
 
   return (
     <div className="container mx-auto py-8">
-        <h1 className="text-3xl font-bold text-center mb-6">All Books</h1>
-        <div className="grid gap-6 sm:grid-cols2 md:grid-cols-3 lg:grid-cols-4">
-        </div>
+      <h1 className="text-5xl text-center font-bold mb-4 text-orange-500">
+        Your Book Table
+      </h1>
+      <div>
+          <Table>
+          <TableCaption></TableCaption>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="text-center">Title</TableHead>
+              <TableHead className="text-center">Author</TableHead>
+              <TableHead className="text-center">Genre</TableHead>
+              <TableHead className="text-center">Published Year</TableHead>
+              <TableHead className="text-center">Copies</TableHead>
+              <TableHead className="text-center">Available</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {
+              books?.map((book:any)=>(
+            <TableCell className="text-center font-medium">
+              {book.title}
+            </TableCell>
+            <TableCell className="text-center font-medium">
+              {book.author}
+            </TableCell>
+            <TableCell className="text-center font-medium">
+              {book.genre}
+            </TableCell>
+            <TableCell className="text-center font-medium">
+              {book.pusblishedYear}
+            </TableCell>
+              ))
+            }
+          </TableBody>
+        </Table>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default AllBooks
+export default AllBooks;

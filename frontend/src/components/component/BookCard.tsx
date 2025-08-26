@@ -34,7 +34,7 @@ export const BookCard= ({book}:{book:TBook}) =>{
               Copies : {book.copies}
             </span>
             <span className={`font-bold ${book.available ? "text-green-600" : "text-orange-600"}`}>
-              Availablity : {book.available ? "Yes" : "No"}
+              Available : {book.available ? "Yes" : "No"}
             </span>
         </div>
       </CardContent>

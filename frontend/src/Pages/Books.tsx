@@ -6,13 +6,15 @@ export const Books = () => {
 
   const {data}=useGetAllBooksQuery();
   const books = data?.data;
+
+  
   return (
     <div>
       <h1>Our Books</h1>
       <div>
         {
           books?.map((book: TBook)=>(
-            <BookCard/>
+            <BookCard key={book._id} book={book}/>
           ))
         }
       </div>
